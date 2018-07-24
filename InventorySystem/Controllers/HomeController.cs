@@ -35,6 +35,7 @@ namespace InventorySystem.Controllers
 
         public async Task<ActionResult> AddNewUser()
         {
+
             var model = new UserModel
             {
                 UserName = "Poojak",
