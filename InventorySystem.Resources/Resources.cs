@@ -53,5 +53,14 @@ namespace Resources
                 return (string)resourceProvider.GetResource("ServerError", CultureInfo.CurrentUICulture.Name);
             }
         }
+		
+		/// <summary>This is abc</summary>
+        public static string abc
+        {
+            get
+            {
+                return (string)resourceProvider.GetResource("abc", CultureInfo.CurrentUICulture.Name);
+            }
+        }
 			}
 }

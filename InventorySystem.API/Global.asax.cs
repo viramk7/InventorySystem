@@ -21,6 +21,7 @@ namespace InventorySystem.API
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ContainerBuilder builder = new ContainerBuilder();
             Bootstrapper.Resolve(builder);
+            log4net.Config.XmlConfigurator.Configure();
         }
     }
 }

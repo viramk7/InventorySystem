@@ -11,11 +11,13 @@ namespace InventorySystem.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly log4net.ILog _logger;
         private readonly WebClientHelper _client;
 
         public HomeController()
         {
             _client = WebClientHelper.Instance;
+            _logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         }
 
         public async Task<ActionResult> Index()

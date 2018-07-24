@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using InventorySystem.Common;
 using InventorySystem.Entities;
-using Resources;
 
 namespace InventorySystem.Services.User
 {
@@ -13,11 +12,13 @@ namespace InventorySystem.Services.User
     {
         #region Initilization
 
+        private readonly log4net.ILog _logger;
         private readonly IRepository<UserMaster> _repository;
 
         public UserServiceEF(IRepository<UserMaster> repository)
         {
             _repository = repository;
+            _logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         }
 
         #endregion
@@ -52,6 +53,7 @@ namespace InventorySystem.Services.User
             }
             catch (Exception ex)
             {
+                _logger.Error(ex);
                 response.Message.Add(ex.Message);
             }
 
@@ -88,6 +90,7 @@ namespace InventorySystem.Services.User
             }
             catch (Exception ex)
             {
+                _logger.Error(ex);
                 response.Message.Add(ex.Message);
             }
 
@@ -109,14 +112,13 @@ namespace InventorySystem.Services.User
             }
             catch (Exception ex)
             {
+                _logger.Error(ex);
                 response.Message.Add(ex.Message);
             }
 
             return response;
         }
         
-        
-
         #endregion
     }
 }
